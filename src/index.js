@@ -6,9 +6,18 @@ import App from './containers/App.js';
 import reportWebVitals from './reportWebVitals';
 import 'tachyons';
 
+import { Provider } from 'react-redux';
+import {createStore} from 'redux';
+import { searchRobots } from './reducer';
+
+const store = createStore(searchRobots);
 
 const root = createRoot(document.getElementById('root'));
-root.render(<App/>);
+root.render(
+    <Provider store = {store}>
+        <App/>
+    </Provider>
+);
 // ReactDOM.render(
 //     <CardList robots={robots}/>
 // , document.getElementById('root'));
